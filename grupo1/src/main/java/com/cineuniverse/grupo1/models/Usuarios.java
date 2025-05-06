@@ -8,38 +8,59 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="Usuarios")
 public class Usuarios {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idUsuario")
+    @Column(name = "id_usuario")
     private Integer idUsuario;
 
-    @Column(name = "nombre", length = 45)
+    @NotEmpty(message = "El nombre es obligatorio.")
+    @Size(min = 2, max = 50, message = "El nombre debe tener entre 2 y 50 caracteres.")
+    @Column(name = "nombre", length = 45, nullable = false)
     private String nombre;
 
-    @Column(name = "apellido", length = 45)
-    private String apellido;
+    @NotEmpty(message = "El apellido paterno es obligatorio.")
+    @Size(min = 2, max = 50, message = "El apellido paterno debe tener entre 2 y 50 caracteres.")
+    @Column(name = "apellido_paterno", length = 45, nullable = false)
+    private String apellidoPaterno;
 
-    @Column(name = "email", length = 45, unique = true)
-    private String email;
+    @Column(name = "apellido_materno", length = 45)
+    private String apellidoMaterno;
 
-    @Column(name = "contraseña", length = 60) // Hashear contraseña
+    @NotEmpty(message = "La contraseña es obligatoria.")
+    @Size(min = 6, message = "La contraseña debe tener al menos 6 caracteres.")
+    @Column(name = "contraseña", length = 60, nullable = false) // Longitud recomendada para contraseñas hasheadas
     private String contraseña;
 
-    @Column(name = "nacimiento", columnDefinition = "DATE")
-    private LocalDate nacimiento;
+    @NotEmpty(message = "El DNI es obligatorio.")
+    @Size(min = 8, max = 8, message = "El DNI debe tener 8 dígitos.")
+    @Column(name = "dni", length = 8, unique = true, nullable = false)
+    private String dni;
 
-    @Column(name = "telefono", length = 45)
-    private String telefono;
+    @NotNull(message = "La fecha de nacimiento es obligatoria.")
+    @Temporal(TemporalType.DATE)
+    @Column(name = "fecha_nacimiento", nullable = false)
+    private LocalDate fechaNacimiento;
 
-    @Column(name = "rol", length = 45)
-    private String rol;
-    
-    // Getters y setters
+    @Column(name = "celular", length = 15)
+    private String celular;
+
+    @Column(name = "genero", length = 1) // Puedes usar 'M' para masculino, 'F' para femenino, etc.
+    private String genero;
+
+    @Column(name = "departamento", length = 45)
+    private String departamento;
+
+    // Getters y setters para todos los atributos
     public Integer getIdUsuario() {
         return idUsuario;
     }
@@ -56,20 +77,20 @@ public class Usuarios {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellidoPaterno() {
+        return apellidoPaterno;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellidoPaterno(String apellidoPaterno) {
+        this.apellidoPaterno = apellidoPaterno;
     }
 
-    public String getEmail() {
-        return email;
+    public String getApellidoMaterno() {
+        return apellidoMaterno;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setApellidoMaterno(String apellidoMaterno) {
+        this.apellidoMaterno = apellidoMaterno;
     }
 
     public String getContraseña() {
@@ -80,27 +101,43 @@ public class Usuarios {
         this.contraseña = contraseña;
     }
 
-    public LocalDate getNacimiento() {
-        return nacimiento;
+    public String getDni() {
+        return dni;
     }
 
-    public void setNacimiento(LocalDate nacimiento) {
-        this.nacimiento = nacimiento;
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
-    public String getRol() {
-        return rol;
+    public String getCelular() {
+        return celular;
     }
 
-    public void setRol(String rol) {
-        this.rol = rol;
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
     }
 }

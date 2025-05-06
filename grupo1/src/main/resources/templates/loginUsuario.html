@@ -231,17 +231,25 @@
 
           <a th:href="@{/home}" class="back-arrow" title="Retroceder">&larr; Atrás</a>
 
-          <div class="form-section mt-3">
-            <label for="username">Username :</label>
-            <input type="text" id="username" placeholder="Ingresa tu usuario">
+          <div th:if="${error}" class="alert alert-danger" role="alert" style="color: red;">
+            <p th:text="${error}"></p>
+        </div>
 
-            <label for="password">Password :</label>
-            <input type="password" id="password" placeholder="Ingresa tu contraseña">
+        <div th:if="${logout}" class="alert alert-success" role="alert" style="color: green;">
+          <p th:text="${logout}"></p>
+      </div>
 
-            <button class="login-btn">Iniciar Sesión</button>
+          <form class="form-section mt-3" th:action="@{/loginUsuario}" method="post">
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" name="username" class="form-control" required autofocus="autofocus">
 
-            <button type="button" class="register-btn"><a style="text-decoration: none;" th:href="@{/registroUsuario}">Registrarse</a></button>
-          </div>
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" id="contraseña" name="password" class="form-control" required>
+
+            <button class="login-btn" type="submit" id="create">Iniciar Sesión</button>
+
+            <button type="button" class="register-btn"><a style="text-decoration: none;" th:href="@{/registro/usuario}">Registrarse</a></button>
+          </form>
 
           <div class="welcome-section">
             <h2>Bienvenidos a <br><span>CINE UNIVERSE</span></h2>

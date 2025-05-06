@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security6">
 <head>
     <meta charset="UTF-8">
     <title>Cine Universe</title>
@@ -57,9 +57,18 @@
                         <a class="nav-link" th:href="@{/dulceria/listarProductos}">Dulcería</a>
                     </li>
                 </ul>
-                <div class="d-flex">
+                <ul sec:authorize="isAuthenticated()">
+                    <li>Bienvenido, <span sec:authentication="principal.nombre"></span> 
+                                    <span sec:authentication="principal.apellidoPaterno"></span></li>
+                    <li>
+                        <form th:action="@{/logout}" method="post">
+                            <button type="submit">Cerrar Sesión</button>
+                        </form>
+                    </li>
+                </ul>
+                <div class="d-flex" sec:authorize="!isAuthenticated()">
                     <a class="btn btn-primary" th:href="@{/loginUsuario}">Iniciar Sesion</a>
-                    <a class="btn btn-primary" th:href="@{/registroUsuario}">Registrarse</a>
+                    <a class="btn btn-primary" th:href="@{/registro/usuario}">Registrarse</a>
                 </div>
             </div>
         </div>

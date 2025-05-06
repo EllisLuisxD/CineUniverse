@@ -7,268 +7,261 @@
     <link th:href="@{/mdbootstrap/css/mdb.min.css}" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        /* *** Reemplaza con tu imagen de fondo real *** */
-        background: url('/img/fondo_Universo.jpg') no-repeat center center fixed;
-        background-size: cover;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        padding: 20px;
-      }
+        body {
+            font-family: Arial, sans-serif;
+            /* *** Reemplaza con tu imagen de fondo real *** */
+            background: url('/img/fondo_Universo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-      .form-container {
-        background: rgba(255, 255, 255, 0.2); /* Ligeramente más visible */
-        border-radius: 20px;
-        padding: 30px 40px;
-        padding-top: 55px; /* *** Añadido más padding superior para la flecha *** */
-        width: 800px;
-        max-width: 95%;
-        backdrop-filter: blur(10px); /* Aumentado un poco el blur */
-        box-shadow: 0 0 20px rgba(0,0,0,0.35); /* Sombra más pronunciada */
-        color: #333;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start; /* Alinear items arriba */
-        flex-wrap: wrap;
-        position: relative; /* *** NECESARIO para posicionar la flecha *** */
-      }
-
-      /* --- Estilos para la Flecha de Retroceso --- */
-      .back-arrow {
-        position: absolute;
-        top: 20px; /* Distancia desde arriba */
-        left: 25px; /* Distancia desde la izquierda */
-        font-size: 30px; /* Tamaño de la flecha */
-        font-weight: bold;
-        color: white; /* Color oscuro para contraste con fondo claro */
-        text-decoration: none;
-        transition: color 0.3s ease, transform 0.2s ease;
-        z-index: 10;
-      }
-
-      .back-arrow:hover {
-        color: #71d1d5; /* Color al pasar el ratón (cyan del botón crear) */
-        transform: scale(1.1);
-      }
-      /* --- Fin Estilos Flecha --- */
-
-
-      .form-content {
-        width: 100%;
-        max-width: 450px;
-        margin: 0 auto;
-      }
-
-      .form-container h2 {
-        text-align: center;
-        margin-bottom: 25px;
-        font-weight: bold;
-        color: #111;
-        border-bottom: 2px solid #555;
-        padding-bottom: 10px;
-      }
-
-      label {
-        display: block;
-        margin-bottom: 5px;
-        margin-top: 15px;
-        font-weight: bold;
-        color: #222;
-      }
-
-      input, select {
-        width: 100%;
-        padding: 10px 12px;
-        margin-bottom: 18px;
-        border-radius: 8px;
-        border: 1px solid #bbb; /* Borde ligeramente más oscuro */
-        font-size: 16px;
-        background-color: rgba(255, 255, 255, 0.85); /* Fondo un poco más opaco */
-        color: #333;
-      }
-      input:focus, select:focus {
-        border-color: #71d1d5;
-        outline: none;
-        box-shadow: 0 0 5px rgba(113, 209, 213, 0.5);
-      }
-
-      .row {
-        display: flex;
-        justify-content: space-between;
-        gap: 15px;
-        flex-wrap: wrap;
-      }
-
-      .row > * {
-        flex: 1 1 calc(50% - 10px);
-        min-width: 150px;
-      }
-
-      .date-select {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-
-      .date-select select {
-        flex: 1 1 100px;
-      }
-
-      /* (Se eliminó la sección de Género según el último código que proporcionaste) */
-      /* Si necesitas la sección de género de vuelta, avísame */
-
-      button#create {
-        background-color: #71d1d5;
-        color: #fff;
-        border: none;
-        padding: 12px 20px;
-        font-weight: bold;
-        font-size: 18px;
-        border-radius: 8px;
-        width: 100%;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-        margin-top: 10px;
-      }
-      button#create:hover {
-        background-color: #5aabb0;
-        transform: scale(1.02);
-      }
-
-      .astronaut-container {
-        width: 30%;
-        min-width: 180px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        align-self: center; /* Centrar verticalmente respecto al contenedor flex */
-      }
-
-      .astronaut {
-        width: 100%;
-        max-width: 180px;
-        height: auto;
-        filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.3)); /* Sombra para el astronauta */
-      }
-
-      /* Media Query para pantallas pequeñas */
-      @media (max-width: 768px) {
         .form-container {
-          flex-direction: column;
-          padding: 20px;
-          padding-top: 60px; /* Ajustar padding superior para flecha */
-          align-items: center; /* Centrar contenido */
+            background: rgba(255, 255, 255, 0.2); /* Ligeramente más visible */
+            border-radius: 20px;
+            padding: 30px 40px;
+            padding-top: 55px; /* *** Añadido más padding superior para la flecha *** */
+            width: 800px;
+            max-width: 95%;
+            backdrop-filter: blur(10px); /* Aumentado un poco el blur */
+            box-shadow: 0 0 20px rgba(0,0,0,0.35); /* Sombra más pronunciada */
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; /* Alinear items arriba */
+            flex-wrap: wrap;
+            position: relative; /* *** NECESARIO para posicionar la flecha *** */
         }
-        .form-content {
-          width: 100%;
-          max-width: none;
-        }
-        .astronaut-container {
-          width: 50%;
-          max-width: 150px; /* Limitar tamaño en móvil */
-          margin-top: 30px; /* Más espacio arriba */
-          order: -1; /* Poner el astronauta arriba en móvil */
-        }
+
+        /* --- Estilos para la Flecha de Retroceso --- */
         .back-arrow {
-           top: 15px; /* Ajustar posición de flecha */
-           left: 15px;
+            position: absolute;
+            top: 20px; /* Distancia desde arriba */
+            left: 25px; /* Distancia desde la izquierda */
+            font-size: 30px; /* Tamaño de la flecha */
+            font-weight: bold;
+            color: white; /* Color oscuro para contraste con fondo claro */
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.2s ease;
+            z-index: 10;
         }
-      }
-      @media (max-width: 480px) {
-        .row > *, .date-select select {
-          flex-basis: 100%;
+
+        .back-arrow:hover {
+            color: #71d1d5; /* Color al pasar el ratón (cyan del botón crear) */
+            transform: scale(1.1);
         }
+        /* --- Fin Estilos Flecha --- */
+
+
+        .form-content {
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: bold;
+            color: #111;
+            border-bottom: 2px solid #555;
+            padding-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #222;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 18px;
+            border-radius: 8px;
+            border: 1px solid #bbb; /* Borde ligeramente más oscuro */
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.85); /* Fondo un poco más opaco */
+            color: #333;
+        }
+        input:focus, select:focus {
+            border-color: #71d1d5;
+            outline: none;
+            box-shadow: 0 0 5px rgba(113, 209, 213, 0.5);
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .row > * {
+            flex: 1 1 calc(50% - 10px);
+            min-width: 150px;
+        }
+
+        .date-select {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .date-select select {
+            flex: 1 1 100px;
+        }
+
+        button#create {
+            background-color: #71d1d5;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            font-weight: bold;
+            font-size: 18px;
+            border-radius: 8px;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 10px;
+        }
+        button#create:hover {
+            background-color: #5aabb0;
+            transform: scale(1.02);
+        }
+
         .astronaut-container {
-            display: none; /* Ocultar astronauta */
+            width: 30%;
+            min-width: 180px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: center; /* Centrar verticalmente respecto al contenedor flex */
         }
-         .back-arrow {
-           font-size: 26px; /* Flecha un poco más pequeña */
+
+        .astronaut {
+            width: 100%;
+            max-width: 180px;
+            height: auto;
+            filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.3)); /* Sombra para el astronauta */
         }
-      }
+
+        /* Media Query para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .form-container {
+                flex-direction: column;
+                padding: 20px;
+                padding-top: 60px; /* Ajustar padding superior para flecha */
+                align-items: center; /* Centrar contenido */
+            }
+            .form-content {
+                width: 100%;
+                max-width: none;
+            }
+            .astronaut-container {
+                width: 50%;
+                max-width: 150px; /* Limitar tamaño en móvil */
+                margin-top: 30px; /* Más espacio arriba */
+                order: -1; /* Poner el astronauta arriba en móvil */
+            }
+            .back-arrow {
+                top: 15px; /* Ajustar posición de flecha */
+                left: 15px;
+            }
+        }
+        @media (max-width: 480px) {
+            .row > *, .date-select select {
+                flex-basis: 100%;
+            }
+            .astronaut-container {
+                display: none; /* Ocultar astronauta */
+            }
+            .back-arrow {
+                font-size: 26px; /* Flecha un poco más pequeña */
+            }
+        }
     </style>
 </head>
 <body>
   <div class="form-container">
-
     <a th:href="@{/loginUsuario}" class="back-arrow" title="Retroceder">&larr;Atrás</a>
     <div class="form-content">
-      <h2>CREA UNA CUENTA</h2>
+        <h2>CREA UNA CUENTA</h2>
 
-      <div class="row">
-        <div>
-            <input type="text" placeholder="Nombre" aria-label="Nombre">
+        <div th:if="${errorRegistro}" class="alert alert-danger" role="alert" style="color: red; margin-bottom: 10px;">
+            <p th:text="${errorRegistro}"></p>
         </div>
-        <div>
-            <input type="text" placeholder="Apellido" aria-label="Apellido">
-        </div>
-      </div>
 
-      <label for="select-day">FECHA DE NACIMIENTO</label>
-      <div class="date-select row">
-        <select id="select-day" aria-label="Día de nacimiento">
-            <option value="" disabled selected>Día</option>
-        </select>
-        <select id="select-month" aria-label="Mes de nacimiento">
-            <option value="" disabled selected>Mes</option>
-            <option value="1">Enero</option><option value="2">Febrero</option><option value="3">Marzo</option>
-            <option value="4">Abril</option><option value="5">Mayo</option><option value="6">Junio</option>
-            <option value="7">Julio</option><option value="8">Agosto</option><option value="9">Septiembre</option>
-            <option value="10">Octubre</option><option value="11">Noviembre</option><option value="12">Diciembre</option>
-        </select>
-        <select id="select-year" aria-label="Año de nacimiento">
-            <option value="" disabled selected>Año</option>
-        </select>
-      </div>
+        <form th:action="@{/registro/usuario}" th:object="${usuario}" method="post">
+            <div class="row">
+                <div>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" aria-label="Nombre" th:field="*{nombre}" required>
+                    <p th:if="${#fields.hasErrors('nombre')}" class="error-message" style="color: red; margin-top: 5px;" th:errors="*{nombre}"></p>
+                </div>
+                <div>
+                    <label for="apellidoPaterno">Apellido Paterno</label>
+                    <input type="text" id="apellidoPaterno" name="apellidoPaterno" placeholder="Apellido Paterno" aria-label="Apellido Paterno" th:field="*{apellidoPaterno}" required>
+                    <p th:if="${#fields.hasErrors('apellidoPaterno')}" class="error-message" style="color: red; margin-top: 5px;" th:errors="*{apellidoPaterno}"></p>
+                </div>
+            </div>
 
-       <label for="email">Correo electrónico</label>
-      <input type="email" id="email" placeholder="Correo electrónico">
+            <div>
+                <label for="apellidoMaterno">Apellido Materno</label>
+                <input type="text" id="apellidoMaterno" name="apellidoMaterno" placeholder="Apellido Materno" aria-label="Apellido Materno" th:field="*{apellidoMaterno}">
+                <p th:if="${#fields.hasErrors('apellidoMaterno')}" class="error-message" style="color: red; margin-top: 5px;" th:errors="*{apellidoMaterno}"></p>
+            </div>
 
-      <label for="tel">Número de celular</label>
-      <input type="tel" id="tel" placeholder="Número de celular">
+            <div>
+                <label for="fechaNacimiento">FECHA DE NACIMIENTO</label>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" th:field="*{fechaNacimiento}" required>
+                <p th:if="${#fields.hasErrors('fechaNacimiento')}" class="error-message" style="color: red; margin-top: 5px;" th:errors="*{fechaNacimiento}"></p>
+            </div>
 
-      <label for="password">Contraseña nueva</label>
-      <input type="password" id="password" placeholder="Contraseña nueva">
+            <div>
+                <label for="dni">DNI</label>
+                <input type="text" id="dni" name="dni" placeholder="DNI" aria-label="DNI" th:field="*{dni}" required>
+                <p th:if="${#fields.hasErrors('dni')}" class="error-message" style="color: red; margin-top: 5px;" th:errors="*{dni}"></p>
+            </div>
 
-      <button id="create">Crear Cuenta</button>
+            <div>
+                <label for="celular">Número de celular</label>
+                <input type="tel" id="celular" name="celular" placeholder="Número de celular" aria-label="Número de celular" th:field="*{celular}">
+                <p th:if="${#fields.hasErrors('celular')}" class="error-message" style="color: red; margin-top: 5px;" th:errors="*{celular}"></p>
+            </div>
+
+            <div>
+                <label for="genero">Género</label>
+                <select id="genero" name="genero" aria-label="Género" th:field="*{genero}">
+                    <option value="" disabled selected>Seleccionar género</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                    <p th:if="${#fields.hasErrors('genero')}" class="error-message" style="color: red; margin-top: 5px;" th:errors="*{genero}"></p>
+                </select>
+            </div>
+
+            <div>
+                <label for="departamento">Departamento</label>
+                <input type="text" id="departamento" name="departamento" placeholder="Departamento" aria-label="Departamento" th:field="*{departamento}">
+                <p th:if="${#fields.hasErrors('departamento')}" class="error-message" style="color: red; margin-top: 5px;" th:errors="*{departamento}"></p>
+            </div>
+
+            <div>
+                <label for="contraseña">Contraseña nueva</label>
+                <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña nueva" aria-label="Contraseña nueva" th:field="*{contraseña}" required>
+                <p th:if="${#fields.hasErrors('contraseña')}" class="error-message" style="color: red; margin-top: 5px;" th:errors="*{contraseña}"></p>
+            </div>
+
+            <button type="submit" id="create">Crear Cuenta</button>
+        </form>
     </div>
-
-    <div class="astronaut-container">
-        <img th:src="@{/img/astronauta.png}" alt="Astronauta" class="astronaut">
-    </div>
-  </div>
-
-  <script>
-    // (Se eliminó la función selectGender ya que se quitó la sección de género)
-    // Si necesitas la sección de género de vuelta, avísame para añadir la función.
-
-    // --- CÓDIGO PARA POBLAR DÍAS Y AÑOS ---
-    document.addEventListener('DOMContentLoaded', function() {
-      const daySelect = document.getElementById('select-day');
-      const yearSelect = document.getElementById('select-year');
-      const currentYear = new Date().getFullYear();
-
-      // Poblar días (1 a 31)
-      for (let i = 1; i <= 31; i++) {
-        const option = document.createElement('option');
-        option.value = i;
-        option.textContent = i;
-        daySelect.appendChild(option);
-      }
-
-      // Poblar años (desde el actual hasta 1900)
-      for (let y = currentYear; y >= 1900; y--) {
-        const option = document.createElement('option');
-        option.value = y;
-        option.textContent = y;
-        yearSelect.appendChild(option);
-      }
-    });
-    // --- FIN DEL CÓDIGO ---
-  </script>
+</div>
 </body>
 </html>

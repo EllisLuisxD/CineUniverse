@@ -1,5 +1,7 @@
 package com.cineuniverse.grupo1.models;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,8 +24,8 @@ public class Salas {
     @Column(name = "capacidad")
     private Integer capacidad;
 
-    @Column(name = "tipo", columnDefinition = "SMALLINT")
-    private Short tipo;
+    @Column(name = "formato")
+    private List<String> formato;
 
     // Getters y setters
     public Long getIdSala() {
@@ -50,11 +52,11 @@ public class Salas {
         this.capacidad = capacidad;
     }
 
-    public Short getTipo() {
-        return tipo;
+    public List<String> getTipo() {
+        return formato;
     }
 
-    public void setTipo(Short tipo) {
-        this.tipo = tipo;
+    public void setTipo(List<String> formato) {
+        this.formato = formato;
     }
 }
