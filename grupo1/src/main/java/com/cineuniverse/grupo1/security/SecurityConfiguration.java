@@ -58,7 +58,7 @@ public class SecurityConfiguration {
         public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.requestCache((cache) -> cache.requestCache(new NullRequestCache())) // Deshabilita la "saved request"
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/home","/peliculas/{id}","/peliculas/listarPeliculas","/dulceria/{id}","/dulceria/listarProductos","/insertarPeliculas/enviarPelis","/registro/usuario","/tarjetas/nueva","/tarjetas/guardar", "/css/**", "/js/**","/img/**","/resources/**","/mdbootstrap/**").permitAll() // Permite acceso sin autenticación a la página de inicio u otros archivos.
+                        .requestMatchers("/home","/peliculas/{id}","/peliculas/listarPeliculas","/dulceria/{id}","/dulceria/listarProductos","/peliculas/insertarPeliculas","/registro/usuario","/tarjetas/nueva","/tarjetas/guardar", "/css/**", "/js/**","/img/**","/resources/**","/mdbootstrap/**").permitAll() // Permite acceso sin autenticación a la página de inicio u otros archivos.
                         .anyRequest().authenticated() // Requiere autenticación para cualquier otra ruta
                 )
                 .formLogin((form) -> form

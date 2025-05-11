@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cineuniverse.grupo1.models.Peliculas;
+import com.cineuniverse.grupo1.models.Tarjeta;
 import com.cineuniverse.grupo1.repository.PeliculaRepository;
 
 @Service
@@ -31,4 +32,19 @@ public class PeliculaService {
     public List<Peliculas> obtenerPeliculasPorCategoria() {
         return peliculaRepository.findByClasificacion("R");
     }
+
+        // Método que guarda una pelicula
+    public void guardarPelicula(Peliculas peliculas) {
+        // Validamos si el número de tarjeta ya existe
+        Optional<Peliculas> peliculaExistente = peliculaRepository.findByTitulo(peliculas.getTitulo());
+
+        if (peliculaExistente.isPresent()) {
+            // Si ya existe, lanzamos una excepción o retornamos un mensaje de error
+            throw new IllegalArgumentException("La película con ese título ya existe.");
+        }
+
+        // Si no existe, la guardamos en la base de datos
+        peliculaRepository.save(peliculas);
+    }
+
 }
